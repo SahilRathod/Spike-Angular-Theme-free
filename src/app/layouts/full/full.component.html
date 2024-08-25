@@ -1,0 +1,17 @@
+<mat-sidenav-container class="mainWrapper blue_theme light-theme" autoFocus dir="ltr">
+  <mat-sidenav #leftsidenav [mode]="isOver ? 'over' : 'side'" [opened]="!isOver"
+    (openedChange)="onSidenavOpenedChange($event)" (closedStart)="onSidenavClosedStart()" class="sidebarNav"
+    [fixedInViewport]="true" [fixedTopGap]="64">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="contentWrapper p-l-24 p-r-24">
+    <app-header [showToggle]="!isOver" (toggleCollapsed)="toggleCollapsed()" (toggleMobileNav)="sidenav.toggle()"
+      class="sticky-header"></app-header>
+    <main class="pageWrapper maxWidth">
+      <div class="m-t-30">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
